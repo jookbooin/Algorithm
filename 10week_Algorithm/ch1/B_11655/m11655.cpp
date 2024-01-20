@@ -16,7 +16,7 @@ using namespace std;
 string input;
 int main(void){
 
-    getline(cin, input);
+    getline(cin, input); 
 
     for(int i =0; i<input.size(); i++){
         if('A'<=input[i] && input[i]<='Z'){
