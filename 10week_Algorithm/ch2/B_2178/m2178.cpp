@@ -21,6 +21,7 @@ int main(){
     q.push({0, 0});  
 
     while(q.size()){
+        
         tie(row, col) = q.front(); q.pop(); 
 
         for(int i = 0; i < 4; i++){
