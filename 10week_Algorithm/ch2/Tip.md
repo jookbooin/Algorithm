@@ -104,4 +104,81 @@ void dfs(int here){
 }
 ```
 
+# ? 2583
+
+1. bits/stdc++.h에서 기본적으로 사용할 수 없는 변수명
+`bits/stdc++.h는 모든 라이브러리를 로드`
+해당 변수명을 사용해야할 때는 `#define`으로 값을 할당해놓고 사용해야한다.
+
+``` cpp
+#include <bits/stdc++.h>
+using namespace std;
+#define prev aaa
+#define next aaaa
+int prev[4];
+int main() {
+    cout << prev[0] << '\n';
+    return 0;
+}
+
+```
+
+2. int형 dfs ( 재귀 )
+
+영역 개수를 세는 경우에 재귀 방법 예시 
+
+`depth:0` -> `depth:1` -> ... 마지막 단계에서 return 될때, 재귀로 인해서 
+ sum += `depth: n` -> sum += `depth: n-1` -> ... -> sum += `depth: 1` -> sum += `depth: 0` 형태로 더해온다.
+``` cpp
+int dfs(int row, int col ){
+
+    visited[row][col] = 1;
+    int ret = 1;
+
+    for (int i = 0; i < 4; i++) {
+        int nr = row + dr[i];
+        int nc = col + dc[i];
+
+        if (nr < 0 || nr >= M || nc < 0 || nc >= N || graph[nr][nc]) continue;
+        if (visited[nr][nc]) continue;
+        
+        ret += dfs(nr, nc);
+    }
+    cout << "( "<< row << ","<< col <<" ) -> " << ret <<endl;
+
+    return ret;
+
+}
+
+area.push_back(dfs(row,col));
+
+
+// 출력값 
+// ( 1,2 ) -> depth : 5 ret : 1
+// ( 1,3 ) -> depth : 4 ret : 2
+// ( 0,3 ) -> depth : 3 ret : 3
+// ( 0,2 ) -> depth : 2 ret : 4
+// ( 0,1 ) -> depth : 1 ret : 5
+// ( 1,0 ) -> depth : 1 ret : 1
+// ( 0,0 ) -> depth : 0 ret : 7
+
+// ( 4,2 ) -> depth : 12 ret : 1
+// ( 4,3 ) -> depth : 11 ret : 2
+// ( 4,4 ) -> depth : 10 ret : 3
+// ( 3,4 ) -> depth : 9 ret : 4
+// ( 2,4 ) -> depth : 8 ret : 5
+// ( 2,5 ) -> depth : 7 ret : 6
+// ( 3,5 ) -> depth : 6 ret : 7
+// ( 4,5 ) -> depth : 5 ret : 8
+// ( 4,6 ) -> depth : 4 ret : 9
+// ( 3,6 ) -> depth : 3 ret : 10
+// ( 2,6 ) -> depth : 2 ret : 11
+// ( 1,6 ) -> depth : 1 ret : 12
+// ( 0,6 ) -> depth : 0 ret : 13
+
+// ( 4,0 ) -> depth : 0 ret : 1
+```
+
+
+
 
