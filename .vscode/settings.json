@@ -7,7 +7,8 @@
         "string": "cpp",
         "vector": "cpp",
         "functional": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "ostream": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

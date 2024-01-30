@@ -1,4 +1,4 @@
-# ? 2178
+# 2178
 
 ### 1. 그래프 따닥따닥 붙어 있는 것 입력받을 때
 `cin` 은  개행문자 ( 띄어쓰기, 한줄띄기 )까지만 받을 수 있다.
@@ -50,7 +50,7 @@ int dc[8] = {0, 1, 0, -1};
 
 ```
 
-# ? 1012
+# 1012
 
 ### 1. 테스트 케이스 초기화 fill
 
@@ -104,7 +104,7 @@ void dfs(int here){
 }
 ```
 
-# ? 2583
+#  2583
 
 1. bits/stdc++.h에서 기본적으로 사용할 수 없는 변수명
 `bits/stdc++.h는 모든 라이브러리를 로드`
@@ -180,5 +180,91 @@ area.push_back(dfs(row,col));
 ```
 
 
+# 1992
+
+## 1. 붙어있는 형태로 입력받을 때
+
+1000
+0000
+0111
+0000
+
+####  string으로 변환
+
+* `string` input으로 입력받고
+* `char` input[col] 로 분해
+* `int` input[col] - '0'
+
+``` cpp
+int graph[max_n][max_n];
+
+string input;
+
+for(int row = 0; row < N ; row ++){
+    cin >> input;
+    for(int col = 0 ; col < M ; col++){
+        graph[row][col] = input[col] - '0';
+    }
+}
+
+```
+
+#### scanf
+int 일 때는 `%1d`로 입력받는 것이 중요.
+``` cpp
+// int
+int graph[max_n][max_n];
+
+for(int row = 0; row < N ; row ++){
+    for(int col = 0 ; col < M ; col++){
+        scanf("%1d",&graph[row][col]);
+    }
+}
+
+// char
+char graph[max_n][max_n];
+
+for(int row = 0; row < N ; row ++){
+    for(int col = 0 ; col < M ; col++){
+        scanf("%c",&graph[row][col]);
+    }
+}
+```
+
+#### char + cin
+
+cin 으로 `int` 타입을 받으면 `개행 문자` 직전까지 받지만,
+`char` 타입은 한 문자만 입력 받기 때문에 상관없다.
+
+``` cpp
+char graph[max_n][max_n];
+
+for(int row = 0; row < N ; row ++){
+    for(int col = 0 ; col < M ; col++){
+        cin >> graph[row][col];
+    }
+}
+```
+
+## 2. char -> string
+
+* string(1, char);
+* string + char
+
+``` cpp
+ char ch = 'B';
+ cout << string(1,ch) <<endl;  // B
+ cout << string(2,ch) <<endl;  // BB
+ cout << string(3,ch) <<endl;  // BBB
+
+ string str= "";
+ cout << str + ch << endl;
+
+```
+
+
+``` cpp
+
+```
 
 
