@@ -182,7 +182,7 @@ area.push_back(dfs(row,col));
 
 # 1992
 
-## 1. 붙어있는 형태로 입력받을 때
+### 1. 붙어있는 형태로 입력받을 때
 
 1000
 0000
@@ -262,9 +262,43 @@ for(int row = 0; row < N ; row ++){
 
 ```
 
+# 2910
+
+### 1. 정렬 comparator(커스텀 비교 함수)
+
+기본 정렬은 `오름 차순 `, 추가적인 정렬 조건을 주기위해서는 sort의 세번째 인자에 `comparator`를 전달해주면 된다.
 
 ``` cpp
+// 오름차순
+sort(b, b + 5);
+sort(a.begin(), a.end(), less<int>());
+
+ // 내림차순
+ sort(b, b + 5, greater<int>());
+```
+
+pair을 이용했을때 `first`, `second` 에 각각 다른 정렬 조건을 줄 수 있다.
+
+``` cpp
+bool cmp (pair<int,int> a, pair<int,int> b){
+    return a.first > b.first   // first는 내림차순 
+                               // second는 오름차순 ( 기본 )
+}
+
+//
+bool cmp(pair<int,int> a, pair<int, int> b){
+	if(a.first == b.first){
+		return mp_first[a.second] < mp_first[b.second];
+	}
+	return a.first > b.first;
+}
 
 ```
+
+### 2. map
+
+map은 key 값에 따라서 사전순서대로 자동 정렬된다.
+`value` 값을 기준으로 정렬하기 위해서는 `vector`로 변환한 뒤 `pair`정렬 방식을 사용해야한다.
+
 
 
