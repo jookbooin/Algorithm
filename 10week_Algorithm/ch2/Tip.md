@@ -301,4 +301,71 @@ map은 key 값에 따라서 사전순서대로 자동 정렬된다.
 `value` 값을 기준으로 정렬하기 위해서는 `vector`로 변환한 뒤 `pair`정렬 방식을 사용해야한다.
 
 
+# 4659
 
+### 1. 포함되어 있는지 확인 
+
+* vector - find
+
+``` cpp
+// vector 생성 
+vector<char> cv{'a', 'e', 'i', 'o', 'u'};
+
+for (int i = 0; i < input.size(); i++) {
+            auto it = find(cv.begin(), cv.end(), input[i]);
+
+            if (it != cv.end()) {  // 모음 일때
+
+            }else {                // 자음 일때
+
+            }
+}
+```
+* 함수
+함수를 이용해서 `bool` 값으로 `포함되어 있는지 안되어 있는지` 판별할 수 있음.
+``` cpp
+bool isVowel(int idx) {
+    return (idx == 'a' || idx == 'e' || idx == 'i' || idx == 'o' || idx == 'u');
+}
+
+ for (int i = 0; i < s.size(); i++) {
+            int idx = s[i];
+            if (isVowel(idx)){}  // 포함
+            else{}               // 포함 x
+ }
+```
+
+### 2. char ↔ int 아스키 코드 
+c, c++ 에서는 문자 형변환이 자연스럽게 되는듯
+``` cpp
+
+bool isVowel(int idx) {
+    return (idx == 'a' || idx == 'e' || idx == 'i' || idx == 'o' || idx == 'u');
+}
+
+string input;
+cin >> input
+
+for (int i = 0; i < input.size() ; i++){
+    int ascii = input[i];
+    isVowel(ascii);
+}
+```
+
+### Tip : 이전 단계 저장하기
+
+``` cpp
+// 1. i-1 과 i 인덱스 비교
+for(int i = 0 ; i < input.size() ; i++){
+    if(input[i - 1] == input[i])
+}
+
+// 변수 prev 설정 
+int prev = -1;
+for(int i = 0 ; i < input.size() ; i++){
+    int ascii = input[i];
+    if(i > 0 && prev == ascii){}
+
+    prev = ascii;  // 이전 문자를 prev 변수에 저장 
+}
+```
