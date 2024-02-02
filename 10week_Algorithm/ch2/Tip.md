@@ -369,3 +369,42 @@ for(int i = 0 ; i < input.size() ; i++){
     prev = ascii;  // 이전 문자를 prev 변수에 저장 
 }
 ```
+
+# 2870
+
+## 1. ret.front()
+string.front() 를 사용하기 위해서는 `string.size()`를 통해 `빈 문자열이 아님`을 먼저 확인해야 한다.
+
+``` cpp
+if(ret.size() && ret.front() == '0'){  
+    ret.erase(0,1);
+}
+```
+
+## 2. 자리수 
+
+* int : 9 자리
+* long long : 18자리
+* 이후에는 `string`으로 잡는 생각을 해야한다.
+
+## 3. 문자열 -> int 정렬 + 커스텀 정렬
+
+* 오름차순 : a < b ( true )
+  내림차순 : a > b ( true )
+
+* 문자열 비교는 아스키 코드를 기반으로 정렬을 하기 때문에 `"222"` , `"1234"` 와 같은 문자열을 비교하기 위해서는 size 를 비교해야한다.
+
+``` cpp
+bool cmp(string a, string b){
+    if(a.size() == b.size()) return a < b;
+
+    return a.size() < b.size();
+}
+```
+
+## 4. 아스키 코드 65 97
+* A : 65    | Z : 90 
+
+* a : 97    | z : 122
+
+* 0 : 48
