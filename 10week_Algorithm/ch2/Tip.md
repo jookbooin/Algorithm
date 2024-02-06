@@ -408,3 +408,19 @@ bool cmp(string a, string b){
 * a : 97    | z : 122
 
 * 0 : 48
+
+# 2852
+
+## 1. 문자열 -> 숫자
+* c스타일 : `atoi(ti.substr(0, 2).c_str())`
+* c++ 스타일 : `stoi(ti.substr(0, 2))`
+
+## 2. 시간을 계산하는 기준..
+* total : hour => min*60 => sec*60*60
+
+## prev 
+이전값을 유지하기 위해서 사용 
+하지만 겹치는 변수명은 `define` 사용
+``` cpp
+#define prev hihi
+```
