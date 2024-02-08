@@ -424,3 +424,21 @@ bool cmp(string a, string b){
 ``` cpp
 #define prev hihi
 ```
+
+# 9012
+
+## 1. stack 
+
+``` cpp
+stack <int> stk;
+
+stk.push(1);
+
+stk.pop();      // 가장 위에 있는 요소 삭제
+
+stk.top();      // 가장 위에 있는 요소 확인
+
+stk.size();
+
+stk.empty()     // 비어있는지 확인할 수 있음.
+```
