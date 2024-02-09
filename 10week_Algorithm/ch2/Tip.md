@@ -442,3 +442,85 @@ stk.size();
 
 stk.empty()     // 비어있는지 확인할 수 있음.
 ```
+
+
+# 14502
+
+## 2차원 배열을 꼭 깊은 복사하는 것이 답은 아니다.
+
+좌표만을 구별했음 
+* 바이러스 좌표
+* 벽 좌표
+
+``` cpp
+for (int row = 0; row < N; row++) {
+        for (int col = 0; col < M; col++) {
+            cin >> graph[row][col];
+            if (graph[row][col] == 2) virusList.push_back({row, col});
+            if (graph[row][col] == 0) wallList.push_back({row, col});
+        }
+    }
+```
+
+## 배열 복사 
+
+* STL 내장함수 copy
+``` cpp
+// 원본을 => graph_copy 로 복사 
+copy(&graph[0][0], &graph[0][0] + 10 * 10, &graph_copy[0][0]);
+```
+
+* 제작 함수 
+``` cpp
+void copyArr(int tmp[10][10], int a[10][10]) {
+    for (int row = 0; row < N; row++) {
+        for (int col = 0; col < M; col++) {
+            tmp[row][col] = a[row][col];
+        }
+    }
+}
+```
+
+## 3점을 선택하는 방법 = 조합 
+
+
+* 3중 for문 
+``` cpp
+for (int i = 0; i < wallList.size(); i++) {
+        for (int j = 0; j < i; j++) {
+            for (int k = 0; k < j; k++) {
+                graph[wallList[i].first][wallList[i].second] = 1;
+                graph[wallList[j].first][wallList[j].second] = 1;
+                graph[wallList[k].first][wallList[k].second] = 1;
+                ret = max(ret, solve());
+                graph[wallList[i].first][wallList[i].second] = 0;
+                graph[wallList[j].first][wallList[j].second] = 0;
+                graph[wallList[k].first][wallList[k].second] = 0;
+            }
+        }
+    }
+
+```
+
+* 재귀 
+
+``` cpp
+void wall(int n) {
+    if (n == 3) {
+        copy(&graph[0][0], &graph[0][0] + 10 * 10, &graph_copy[0][0]);
+        virus(graph_copy);
+        mb = max(mb, count(graph_copy));
+        return;
+    }
+
+    for (int row = 0; row < N; row++) {
+        for (int col = 0; col < M; col++) {
+            if (graph[row][col] == 0) {
+                graph[row][col] = 1;
+                wall(n + 1);
+                graph[row][col] = 0;
+            }
+        }
+    }
+}
+```
