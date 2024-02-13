@@ -2,7 +2,7 @@
 using namespace std;
 const int V = 4;
 // vector<int> adj;
-vector<int> adj[V];  // 리스트 여러개
+vector<int> adj[V];  // 리스트 여러개 선언
 
 int main() {
     adj[0].push_back(1);

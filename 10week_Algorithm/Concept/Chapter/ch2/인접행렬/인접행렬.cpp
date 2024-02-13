@@ -16,10 +16,10 @@ bool graph[V][V], visited[V];
 void go(int from) {
     visited[from] = 1;
     cout << from << '\n';
-    for(int i = 0; i< V; i++){
-        if(visited[i]) continue;
-        if(graph[from][i]){ // 1-2 , 1-3 , 1-4 연결된 점으로 들어간다.
-            go(i);
+    for(int to = 0; to< V; to++){
+        if(visited[to]) continue;
+        if(graph[from][to]){ // 1-2 , 1-3 , 1-4 연결된 점으로 들어간다.
+            go(to);
         }
     }
 }

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std; 
-const int V = 10;
 
+const int V = 10;
 vector<int> adj[V];
 int visited[V];
 

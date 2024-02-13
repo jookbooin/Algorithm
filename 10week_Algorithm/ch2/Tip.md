@@ -524,3 +524,32 @@ void wall(int n) {
     }
 }
 ```
+
+# 1068
+
+## 1. tree 는 root 부터 시작해 본다.
+``` cpp
+ dfs(root)
+```
+
+## 2. 트리 개수 세는법 (암기)
+``` cpp
+int dfs(int idx){
+    int child = 0;
+    int ret = 0;
+    for(int a : tree[idx]){
+        if(a == ers) continue;
+
+        ret += dfs(a);  // 하위 자식 노드 개수를 재귀로 더한다
+        child ++;
+    }
+
+    if(child == 0)  // 리프 노드일 때
+        return 1;
+}
+```
+
+## 3. vector 선언
+
+* 2차원 배열 : vector<vector<int>> vec2
+* 인접 리스트 : vector<int> tree[10];
