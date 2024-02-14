@@ -557,7 +557,7 @@ int dfs(int idx){
 
 # 1325
 
-## 1068 트래개수 세는법 + 자신 개수 포함
+## 1068 트리개수 세는법 + 자신 개수 포함
 ``` cpp
 int dfs(int idx) {
     visited[idx] = 1;
@@ -570,3 +570,30 @@ int dfs(int idx) {
     return ret;
 }
 ```
+
+# 17298 
+
+## 짝짓기 문제 : stack을 우선 생각해봐라
+
+stack의 top은 `st.size()` , `!st.empty()` 와 함께 써야함
+
+* 앞에서 가는 방법 ( sol_17298 )
+
+``` cpp
+ for (int i = 0; i < N; i++) {
+        while (st.size() && val[st.top()] < val[i]) {  // st이 비어있지 않아야 top 탐색가능
+            ret[st.top()] = val[i];
+            st.pop();
+        }
+        st.push(i);
+    }
+```
+
+* 뒤에서 올 수도 있음 m17298
+
+
+## 초기화 하는 방법에 memset, fill 사용
+``` cpp
+memset(ret, -1, sizeof(ret));
+```
+
