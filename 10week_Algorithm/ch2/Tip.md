@@ -553,3 +553,20 @@ int dfs(int idx){
 
 * 2차원 배열 : vector<vector<int>> vec2
 * 인접 리스트 : vector<int> tree[10];
+
+
+# 1325
+
+## 1068 트래개수 세는법 + 자신 개수 포함
+``` cpp
+int dfs(int idx) {
+    visited[idx] = 1;
+    int ret = 1;  //  현재 노드
+    for (int a : tree[idx]) {
+        if (visited[a]) continue;
+        ret += dfs(a);      // + 자식들
+    }
+    
+    return ret;
+}
+```
