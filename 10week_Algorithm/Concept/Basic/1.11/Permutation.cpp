@@ -13,7 +13,7 @@ int main() {
         // }while(next_permutation(&a[0],&a[0]+3));
     } while (next_permutation(a, a + 3));
 
-    cout << "\n";
+    cout << "\n"<<"\n";
 
     /** 2. next_pernutation은 오름차순이므로 213 보다 큰 경우만 나오게 된다.
      *     모든 경우를 전부 구하기 위해서는 sort를 사용해야 한다.
