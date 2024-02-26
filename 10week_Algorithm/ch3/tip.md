@@ -135,3 +135,23 @@ if(!visited[next]){                    // 처음 방문했을때
     val[next] += val[cur];                   // 
 }
 ```
+
+# 13913
+
+추적 Trace_Back
+`prev[next] = here`
+
+``` cpp
+const int max_len = 200004;
+int visited[max_len] , prev[max_len];  // prev 배열 선언
+
+while (q.size()) {          
+    prev[next] = cur;  
+}
+
+for(int i = K; i != N; i = prev[i]){   // 역 추적
+        v.push_back(i);
+}
+
+v.push_back(ret);
+```
