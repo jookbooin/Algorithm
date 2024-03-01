@@ -149,9 +149,65 @@ while (q.size()) {
     prev[next] = cur;  
 }
 
-for(int i = K; i != N; i = prev[i]){   // 역 추적
+for(int i = K; i != N; i = prev[i]){   // for문으로 역추적하는 방법
         v.push_back(i);
 }
 
 v.push_back(ret);
+```
+
+# 17071
+
+## 플루이드 알고리즘 ( bfs에 대한 새로운 접근 )
+
+q의 일반적인 형태가 다음과 같을 때
+
+``` cpp
+queue<int> q;
+    visited[0][N] = 1;  // 0초 때 N 위치
+    q.push(N);
+
+    while (q.size()) {
+        int cur = q.front();
+        q.pop();
+
+        ...
+        ...
+        q.push(N);
+        
+    }
+}
+```
+
+단계(depth)별로 출력하도록 할 수도 있다.
+이 문제처럼 단계별 3경우씩 증가되는 경우에는 
+각 단계에 해당 하는 횟수만큼 q를 확인하는 것이다
+1/ 3/ 9/ 27 
+
+``` cpp
+while (q.size()) {
+
+    int qsize = q.size();
+
+    for (int i = 0; i < qsize; i++) {  // 1 3 9 27
+
+        cur = q.front();
+        q.pop();
+
+        for (int next : {cur - 1, cur + 1, cur * 2}) {
+        }
+
+    }
+}
+
+```
+
+
+## 덧셈공식...
+``` cpp
+ while (q.size()) {
+        int cur = q.front().first;
+        int turn = q.front().second;
+        int kpos = K + turn * (turn + 1) / 2;  // K+1+2+3+4 를 포현하는 것...
+ }
 ```
