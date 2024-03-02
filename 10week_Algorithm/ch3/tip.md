@@ -211,3 +211,46 @@ while (q.size()) {
         int kpos = K + turn * (turn + 1) / 2;  // K+1+2+3+4 를 포현하는 것...
  }
 ```
+
+# 14497
+
+## 2차원 좌표 1차원으로 표현하는 방법
+
+``` cpp
+q.push(1000*jrow + jcol);
+
+while(q.size()){
+    int crow = q.front() / 1000;
+    int ccol = q.front() % 1000;
+}
+
+```
+
+## 큐 2개
+특정 조건을 만났을때 새로운 큐에 넣고 -> 기존 큐를 대체하면서 다음 단계를 표현하는 듯
+
+* 0은 현재 단계이고, 1을 만나면 위치를 저장한다.
+* 다음 단계는 저장해놓았던 1의 위치부터 시작한다.
+
+``` cpp
+queue<int> q;           // 현재 단계 위치 저장용 
+
+while (graph[trow][tcol] != '0') {  // 종료조건 
+    cnt++;             // 단계
+    queue<int> temp;   // 다음 단계 위치 저장용 
+
+    while(q.size()){
+
+        if(graph[nrow][ncol] != '0'){           // 다음 단계
+            temp.push(1000 * nrow + ncol);
+        }else {                                 // 현재 단계
+            q.push(1000 * nrow + ncol); 
+        }
+
+    }
+
+    q = temp;          
+}
+```
+
+
