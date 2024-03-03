@@ -254,3 +254,25 @@ while (graph[trow][tcol] != '0') {  // 종료조건
 ```
 
 
+# 3197
+
+## 문제를 단순화 할 필요가 있다.
+
+* ( 단순화 ) 백조 2개를 움직인다 -> 백조 1개가 다른 백조 쪽으로 이동한다
+
+## 플루이드 필?
+* qsize = q.size()
+* 큐 2개 : Q , tempQ 를 이용 후 `Q = tempQ` 로 바꿈
+
+## Q 삭제 방법
+
+``` cpp
+// 1. 번 방법이 더 효율적이다.
+void Qclear (queue<pair<int,int>> &q){ // 원본 전달 
+    queue<pair<int,int>> empty;
+    swap(q, empty);
+}
+
+// 2.
+while(q.size()) q.pop();
+```
