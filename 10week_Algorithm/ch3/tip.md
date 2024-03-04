@@ -276,3 +276,37 @@ void Qclear (queue<pair<int,int>> &q){ // 원본 전달
 // 2.
 while(q.size()) q.pop();
 ```
+
+
+# 1987
+
+## 원복 방법
+
+매개변수로 depth 를 다루는 것 
+
+``` cpp
+void dfs(int cr, int cc,int cnt){
+
+    mx = max(mx,cnt);
+
+    for(int i =0; i<4;i++){
+            int nr = cr + dr[i];
+            int nc = cc + dc[i];
+
+            if (nr <0 || nr >=R || nc < 0 || nc >= C ) continue;
+            if(visited[graph[nr][nc] - 'A']) continue;
+
+            visited[graph[nr][nc] - 'A'] = 1;           //
+
+            dfs(nr,nc,cnt + 1);
+            visited[graph[nr][nc] - 'A'] = 0;
+
+    }
+
+}
+```
+## 알파벳 
+
+총 26개 아스키 코드 
+* A : 65
+* a : 97
