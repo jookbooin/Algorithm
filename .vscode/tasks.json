@@ -67,7 +67,7 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe 활성 파일 빌드",
-            "command": "C:\\mingw64\\bin\\g++.exe",
+            "command": "D:\\program\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
