@@ -276,3 +276,80 @@ void Qclear (queue<pair<int,int>> &q){ // 원본 전달
 // 2.
 while(q.size()) q.pop();
 ```
+
+
+# 1987
+## 원복 방법
+매개변수로 depth 를 다루는 것 
+``` cpp
+void dfs(int cr, int cc,int cnt){
+    mx = max(mx,cnt);
+    for(int i =0; i<4;i++){
+            int nr = cr + dr[i];
+            int nc = cc + dc[i];
+            if (nr <0 || nr >=R || nc < 0 || nc >= C ) continue;
+            if(visited[graph[nr][nc] - 'A']) continue;
+            visited[graph[nr][nc] - 'A'] = 1;           //
+            dfs(nr,nc,cnt + 1);
+            visited[graph[nr][nc] - 'A'] = 0;
+    }
+}
+```
+## 알파벳 
+
+총 26개 아스키 코드 
+* A : 65
+* a : 97
+
+# 2529
+
+## vector 요소 반환
+* 첫번째 요소 반환 vector[0] == vector.front()
+* 마지막 요소 반환 vector[vector.size()-1] == vector.back()
+
+## 팩토리얼 값
+* 10! : 362만 
+* 3^10 : 6만
+* 2^10 : 1024
+
+## string 
+* string은 연산자 오버라이딩을 통해서 `+char` , `+string` 모두 가능하다.
+* 숫자 → string 변환하려면 `to_string(int)` 
+* 숫자 → char 만드려면 `int + '0'` 과 같이 사용
+
+## 로직
+0. 백트래킹 
+다음 단계로 넘어가면서 매개변수로 문자열을 더해간다.
+
+```cpp
+vector<string> ret;
+go(0,""); // "" 기본 문자열을 넘기고 
+
+void go(int idx, string num){
+    if(idx == N+1){
+        ret.push_back(num);     // 특정 조건에 vector에 추가 
+        return;
+    }
+
+    for(int i = 0; i <= 9; i++){
+        go(idx+1, num + to_string(i));   // 매개변수로 다음 단계로 넘어간다.
+    }
+
+}
+
+
+```
+1. 2 < 1 , 2 < 3
+`string`, `char`로 크기 비교를 할때 `같은 길이`를 기준으로 `아스키 코드`를 이용해서 비교한다.
+```cpp
+bool opc(char x, char y, char op){
+    if(x < y && op == '<') return true;
+    else if (x > y && op == '>') return true;
+    return false;
+}
+```
+2. 방문처리 visited
+3. 최대 최소 
+    * 정렬 
+
+# 9934
