@@ -280,7 +280,7 @@ while(q.size()) q.pop();
 
 # 1987
 ## 원복 방법
-매개변수로 depth 를 다루는 것 
+* 방문 처리 visited
 ``` cpp
 void dfs(int cr, int cc,int cnt){
     mx = max(mx,cnt);
@@ -289,13 +289,14 @@ void dfs(int cr, int cc,int cnt){
             int nc = cc + dc[i];
             if (nr <0 || nr >=R || nc < 0 || nc >= C ) continue;
             if(visited[graph[nr][nc] - 'A']) continue;
-            visited[graph[nr][nc] - 'A'] = 1;           //
+
+            visited[graph[nr][nc] - 'A'] = 1;       // 방문 처리
             dfs(nr,nc,cnt + 1);
-            visited[graph[nr][nc] - 'A'] = 0;
+            visited[graph[nr][nc] - 'A'] = 0;       // 원복
     }
 }
 ```
-## 알파벳 
+## 아스키 코드
 
 총 26개 아스키 코드 
 * A : 65
