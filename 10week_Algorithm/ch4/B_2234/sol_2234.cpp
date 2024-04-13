@@ -41,7 +41,7 @@ int main(){
 
     for(int r = 0; r< m ; r++){
         for(int c =0; c < n ; c++){
-            if( r + 1 < m){
+            if( r + 1 < m){ // row 
                 int a = visited[r + 1][c];
                 int b = visited[r][c];
                 if(a != b){
@@ -49,8 +49,8 @@ int main(){
                 }
             }
 
-            if( c + 1 < n){
-                int a = visited[r + 1][c];
+            if( c + 1 < n){ // col 
+                int a = visited[r][c+1];
                 int b = visited[r][c];
                 if(a != b){
                     big = max(big, compSize[a] + compSize[b]);
