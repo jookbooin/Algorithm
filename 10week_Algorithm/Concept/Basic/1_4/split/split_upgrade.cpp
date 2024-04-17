@@ -3,7 +3,7 @@
 using namespace std;
 
 /**
- * ¸Å¹ø eraseÇÏ´Â ºÎºĞ º¸¿Ï
+ * ë§¤ë²ˆ eraseí•˜ëŠ” ë¶€ë¶„ ë³´ì™„
  * */
 
 vector<string> split(const string& input, string delimiter) {
@@ -20,7 +20,10 @@ vector<string> split(const string& input, string delimiter) {
 }
 
 int main() {
-    string s = "¾È³çÇÏ¼¼¿ä Å«µ¹ÀÌ´Â Å·°«Á¦³Ê·² ÃµÀçÀÔ´Ï´Ù Á¤¸»ÀÌ¿¡¿ä!", d = " ";
+    string s = "ì•ˆë…•í•˜ì„¸ìš” í°ëŒì´ëŠ” í‚¹ê°“ì œë„ˆëŸ´ ì²œì¬ì…ë‹ˆë‹¤ ì •ë§ì´ì—ìš”!";
+    string d = " ";
     vector<string> a = split(s, d);
-    for (string b : a) cout << b << "\n";
+    
+    for (string b : a) 
+        cout << b << "\n";
 }
