@@ -20,3 +20,22 @@
 * `cin`: 개행문자 직전 까지 입력받음 
   `getline` : 전체 라인 입력받을때 사용
   
+# 1-J 9375
+
+## 1. 경우의 수 
+경우의 수는 수가 커질 수 있음. `long long`으로 선언하는 것이 좋다
+
+## 2. map
+
+* auto 
+
+``` cpp
+for(auto it : map)
+// map.first = key 
+// map.second = value
+```
+
+* map iterator 순회
+``` cpp
+for(auto it = map.begin(); it!=map.end(); it++)
+```
