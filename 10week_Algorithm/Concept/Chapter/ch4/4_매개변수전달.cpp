@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;  
 const int n = 4;
-string a[4] = {"»ç°ú", "µş±â", "Æ÷µµ", "¹è"};
+string a[4] = {"ì‚¬ê³¼", "ë”¸ê¸°", "í¬ë„", "ë°°"};
 
 void go(int num){
 	string ret = "";	
