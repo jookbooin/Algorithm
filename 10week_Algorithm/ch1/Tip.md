@@ -39,3 +39,23 @@ for(auto it : map)
 ``` cpp
 for(auto it = map.begin(); it!=map.end(); it++)
 ```
+
+# 1-K 1213
+## 알파벳 배열
+``` cpp
+int alpha[26]; 
+
+cin >> input;
+
+for (char c : input) {
+    alpha[c - 'A']++;
+}
+```
+
+## 비트마스킹으로 홀수/짝수 구별
+``` cpp
+if (alpha[i] & 1) { // 홀수
+
+}else {             // 짝수
+}
+```
