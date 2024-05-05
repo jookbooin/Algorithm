@@ -65,3 +65,56 @@ if (alpha[i] & 1) { // 홀수
 ## 조합 nCr
 * r <=3 : for 문
 * r > 3 : 재귀 사용
+
+# 1-M 3986
+* 짝짓기, 폭발 나오면 → STACK 의심
+* stack.top() 쓰기전 size 체크 해야함
+
+
+# 1-N 1629
+
+## 분할 정복 : O(logN)
+B가 20억이 넘어 for문을 사용하면  `O(N)`의 시간 복잡도를 가진다.
+
+`분할 정복`을 이용해서 더 작은 문제로 나누어서 계산한다. 
+나누어서 계산하기 때문에 `O(logN)` 시간 복잡도를 가지게 된다.
+
+* p(8) = p(4) * p(4) 
+* p(4) = p(2) * p(2)
+* p(2) = p(1) * p(1)
+
+* p(7) = p(3) * p(3 + `1`)
+* p(3) = p(1 + `1`) * p(1)
+
+``` cpp
+int go (int in, int num){           // 7
+  if (num == 1) return in % c;
+  
+  ll result = go(in, num / 2);      // 3 
+  result = (result * result) % c ;  // 3 + 3 
+  if(num % 2 == 1) 
+    result = result * in %c         // 3 + 1 
+
+  return result;
+}
+
+```
+
+# 1-O 4375
+
+## 모듈러 연산 
+```
+a % n = ( a % n ) % n
+= ( 0 ~ n-1 ) % n
+= ( 0 ~ n-1 )
+
+( a * b ) % n
+= ( a % n * b ) % n 
+= ( a % n % n * b % n) % n = ( a % n * b % n ) % n
+```
+ 
+따라서 다음과 같이 쓸 수 있게 된다..
+( a * b + c ) % n = ( `a % n` * b + c ) % n
+
+
+
