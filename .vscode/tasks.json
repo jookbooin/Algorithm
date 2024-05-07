@@ -13,7 +13,7 @@
             "args": [
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/build/${fileBasenameNoExtension}"
             ],
             "group": "build",
             "problemMatcher": {
@@ -37,7 +37,7 @@
             "args": [
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/build/${fileBasenameNoExtension}"
             ],
             "group": "build",
             "problemMatcher": {
@@ -61,7 +61,7 @@
             "group": "test",
             "args": [
                 "/C",
-                "${fileDirname}\\${fileBasenameNoExtension}"
+                "${fileDirname}/build/${fileBasenameNoExtension}"
             ]
         },
         {
@@ -73,7 +73,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}/build/${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
