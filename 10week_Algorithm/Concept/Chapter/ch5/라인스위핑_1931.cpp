@@ -1,21 +1,10 @@
 
 /**
-    11
-    1 4
-    3 5
-    0 6
-    5 7
-    3 8
-    5 9
-    6 10
-    8 11
-    8 12
-    2 13
-    12 14
-
-
-
-*/
+ * 그리디
+ * 라인스위핑
+ *
+ * 구간 : 정렬
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -31,21 +20,20 @@ int main() {
         v.push_back({to, from});
     }
 
-/** 끝나는 시간 기준으로 정렬한다. */
+    /** 끝나는 시간 기준으로 정렬한다. */
     sort(v.begin(), v.end());
-   
-   from = v[0].second;
-   to = v[0].first;
-   
-   for(int i = 1; i< n; i++){
-    
-        if(v[i].second < to) continue;
+
+    from = v[0].second;
+    to = v[0].first;
+
+    for (int i = 1; i < n; i++) {
+        if (v[i].second < to) continue;
         from = v[i].second;
         to = v[i].first;
-        ret ++;
-   }
+        ret++;
+    }
 
-   cout << ret << '\n';
-   
+    cout << ret << '\n';
+
     return 0;
 }
