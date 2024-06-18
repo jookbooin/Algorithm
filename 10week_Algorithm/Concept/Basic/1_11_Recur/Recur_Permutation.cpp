@@ -12,9 +12,11 @@ void print() {
     cout << "\n";
 } 
 
+// depth : М┼╦К╕╛Л²≤ К├▓Л²╢
+// 
 void makePermutation(int n, int r, int depth) {
 
-    cout << n << " : " << r << " - " << depth  << '\n';
+    cout << n << "  " << r << " - " << depth  << '\n';
     if (r == depth) {
         print();
         return;
@@ -23,7 +25,7 @@ void makePermutation(int n, int r, int depth) {
     for (int i = depth; i < n; i++) {
         swap(a[i],a[depth]); // 1
         makePermutation(n,r,depth+1);
-        swap(a[i],a[depth]); // 1 ©║╪╜ ╧ы╡ш ╩Себ -> ╢ы╫ц юлюЭ ╩Себ╥н ©Ь╨╧ 
+        swap(a[i],a[depth]); // 1 Л≈░Л└° К╟■Й╬╪ Л┐│М┐° -> К▀╓Л▀° Л²╢Л═└ Л┐│М┐°К║° Л⌡░КЁ╣ 
     }
 
     return;

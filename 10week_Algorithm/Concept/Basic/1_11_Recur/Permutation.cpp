@@ -15,14 +15,14 @@ int main() {
 
     cout << "\n"<<"\n";
 
-    /** 2. next_pernutationÀº ¿À¸§Â÷¼øÀÌ¹Ç·Î 213 º¸´Ù Å« °æ¿ì¸¸ ³ª¿À°Ô µÈ´Ù.
-     *     ¸ğµç °æ¿ì¸¦ ÀüºÎ ±¸ÇÏ±â À§ÇØ¼­´Â sort¸¦ »ç¿ëÇØ¾ß ÇÑ´Ù.
+    /** 2. next_pernutationì€ ì˜¤ë¦„ì°¨ìˆœì´ë¯€ë¡œ 213 ë³´ë‹¤ í° ê²½ìš°ë§Œ ë‚˜ì˜¤ê²Œ ëœë‹¤.
+     *     ëª¨ë“  ê²½ìš°ë¥¼ ì „ë¶€ êµ¬í•˜ê¸° ìœ„í•´ì„œëŠ” sortë¥¼ ì‚¬ìš©í•´ì•¼ í•œë‹¤.
      * */
     vector<int> va = {2, 1, 3};
     sort(va.begin(), va.end());  
 
     do {
-        for (int i : a) cout << i << " ";
+        for (int i : va) cout << i << " ";
         cout << "\n";
 
     } while (next_permutation(va.begin(), va.end()));

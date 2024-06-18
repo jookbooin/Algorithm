@@ -9,7 +9,7 @@ void print(vector<int> b) {
     cout << '\n';
 }
 
-void combi(int start, vector<int> b) {  // start´Â ÀÎµ¦½º
+void combi(int start, vector<int> b) { 
 
     if (b.size() == k) {
         print(b);
