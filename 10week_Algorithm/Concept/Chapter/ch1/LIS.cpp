@@ -12,7 +12,7 @@ int main() {
     for (int i = 1; i <= n; i++) {
         cin >> a[i];
 
-        // psumÀº ÇÕµÇ¾îÁ® ÀÖ´Â »óÅÂ
+        // psumì€ í•©ë˜ì–´ì ¸ ìˆëŠ” ìƒíƒœ
         psum[i] = psum[i - 1] + a[i];
     }
     for (int i = 0; i < m; i++) {
