@@ -10,7 +10,7 @@ int main(){
     cout << *lower_bound(a.begin(), a.end(), 100)<< "\n";
     cout << &*lower_bound(a.begin(), a.end(), 100)<< "\n";
 
-    cout << upper_bound(a.begin(),a.end(),3) - lower_bound(a.begin(),a.end(),3) << "\n"; // °³¼ö
+    cout << upper_bound(a.begin(),a.end(),3) - lower_bound(a.begin(),a.end(),3) << "\n"; // 
     
     return 0;
 }
