@@ -12,16 +12,19 @@ int main(void) {
     for (int a : v) cout << a << " ";
     cout << "\n";
 
+    // erase
     v.erase(v.begin(), v.begin() + 3);
 
     for (int a : v) cout << a << " ";
     cout << "\n";
 
+    // find
     auto a = find(v.begin(), v.end(), 100);  // stl ÇÔ¼ö
 
     if (a == v.end())
         cout << "not found" << "\n";
 
+    // fill
     fill(v.begin(), v.end(), 10);
     for (int a : v) cout << a << " ";
     cout << "\n";
@@ -31,13 +34,9 @@ int main(void) {
     for (int a : v) cout << a << " ";
     cout << "\n";
 
-
     // pair
-    vector<pair<int,int>> v2 = { {1,2},{3,4}};
-    for(pair<int,int> a : v2) cout << a.first << " ";
-
-
+    vector<pair<int, int>> v2 = {{1, 2}, {3, 4}};
+    for (pair<int, int> a : v2) cout << a.first << " ";
 
     return 0;
-
 }

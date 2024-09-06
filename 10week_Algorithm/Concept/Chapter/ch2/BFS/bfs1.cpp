@@ -5,6 +5,7 @@ vector<int> adj[100];
 
 int visited[100];
 int nodeList[] = {10, 12, 14, 16, 18, 20, 22, 24};
+int max_val = 0;
 
 void bfs(int here) {
     queue<int> q;
@@ -17,10 +18,10 @@ void bfs(int here) {
         cout << "here : " << here << endl;
         for (int there : adj[here]) {
             if (visited[there]) continue;
-            cout <<"    for : " << there << endl;
-            visited[there] = visited[here] + 1;  // ¹æ¹® ·¹º§
+            cout <<"    >> : " << there << endl;
+            visited[there] = visited[here] + 1;  // ë°©ë¬¸ ë ˆë²¨
 
-            q.push(there); // ÇöÀç³ëµå here¿¡ ÀÎÁ¢ÇÑ ³ëµå there Ãß°¡
+            q.push(there); // í˜„ìž¬ë…¸ë“œ hereì— ì¸ì ‘í•œ ë…¸ë“œ there ì¶”ê°€
         }
     }
 
@@ -41,8 +42,10 @@ int main(void) {
 
     for (int i : nodeList) {
         cout << i << " : " << visited[i] << '\n';
+        max_val = max(max_val,visited[i]);
     }
-    cout << "10¹øÀ¸·ÎºÎÅÍ 24¹ø±îÁö ÃÖ´Ü°Å¸®´Â : " << visited[24] - 1 << '\n';
+    
+    cout << "10ë²ˆìœ¼ë¡œë¶€í„° 24ë²ˆê¹Œì§€ ìµœë‹¨ê±°ë¦¬ëŠ” : " << max_val - 1 << '\n';
 
     return 0;
 }
