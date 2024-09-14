@@ -20,6 +20,7 @@ int main(){
     for(int i = 1; i < n; i ++){
         go(1 | (1 << i)); // 11 101 1001
     }
+	
     return 0;
 }
 
