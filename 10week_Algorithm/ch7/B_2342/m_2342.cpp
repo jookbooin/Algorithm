@@ -41,7 +41,7 @@ ll go(int round, int left, int right){
     // 종료조건 
     if(round == rv.size()) return 0;
 
-    ll& ret = dp[round][left][right];
+    ll& ret = dp[round][left][right];s
     if(ret != INF) return ret;
 
     // 기.왼 ->     
