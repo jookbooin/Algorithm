@@ -3,9 +3,10 @@
 using namespace std;
 
 map<string, int> mp;
-string a[] = {"林全枚", "捞铰枚", "冠辆急"};
+string a[] = {"aa", "bb", "cc"};
 
 int main() {
+    
     for (int i = 0; i < 3; i++) {
         mp.insert({a[i], i + 1});
         mp[a[i]] = i + 1;
@@ -15,11 +16,13 @@ int main() {
 
     mp["kundol"] = 4;
     cout << mp.size() << '\n';
+
     mp.erase("kundol");
     auto it = mp.find("kundol");
     if (it == mp.end()) {
-        cout << "给茫摆匙 惨部府\n";
+        cout << "can'tttttttt!!!\n";
     }
+
     mp["kundol"] = 100;
     it = mp.find("kundol");
     if (it != mp.end()) {
@@ -35,5 +38,6 @@ int main() {
     }
 
     mp.clear();
+
     return 0;
 }

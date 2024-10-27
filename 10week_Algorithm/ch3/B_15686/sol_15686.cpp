@@ -2,6 +2,7 @@
 using namespace std;
 int n, m, a[54][54], result = 987654321;
 
+// 모든 가능한 chicken 경우의 수를 모은다.
 vector<vector<int>>chickenList;
 
 vector<pair<int, int>> _home, chicken;
@@ -10,6 +11,7 @@ void combi(int start, vector<int> v){
         chickenList.push_back(v);
         return;
     }
+    
     for(int i = start + 1; i < chicken.size(); i++){
         v.push_back(i);
         combi(i, v);
@@ -29,6 +31,7 @@ int main(){
     vector<int> v;
     combi(-1, v);
     
+    // 
     for(vector<int> cList : chickenList){
         int ret = 0;
         for(pair<int, int> home : _home){

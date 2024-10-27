@@ -3,7 +3,6 @@
 ## 조합
 
 ``` cpp
-
 void combi(int idx, vector<int> v){
     if(v.size() == M){
         return
@@ -36,10 +35,14 @@ int b = v.at(idx);
 2. 2차원 배열
 
 ``` cpp
+// 1. vector 내부 vector
 vector<vector<int>> chiclist
-// { { , , }, 
-//   { , , },
-//   { , , } }
+
+// 2. vector<int> 인 10개짜리 배열 
+vector<int> v3[10];
+
+// 3. 10 * 10 : 0으로 초기화
+vector<vector<int>> v2 (10, vector<int> (10, 0));
 ```
 
 # 12869

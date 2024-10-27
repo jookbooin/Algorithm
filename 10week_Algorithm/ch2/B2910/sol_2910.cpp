@@ -4,7 +4,7 @@ typedef long long ll;
 int N, C, arr[1004];
 
 map<int, int> mp, mp_idx; // mp : ( 값 , 개수 ) mp_idx : ( 값 , 인덱스 )
-vector<pair<int,int>> vmp;  // map -> 
+vector<pair<int,int>> vmp;  // mp
 
 bool cmp(pair<int,int> a, pair<int,int> b){ 
     if(a.second == b.second){ 

@@ -1,22 +1,22 @@
 /**
- * 0 : ºó Ä­
- * 1 : Áý
- * 2 : Ä¡Å² Áý
+ * 0 : ë¹ˆ ì¹¸
+ * 1 : ì§‘
+ * 2 : ì¹˜í‚¨ ì§‘
  *
  * N = 50, M = 13
- * Áý °³¼ö 2N °³ Á¸Àç
+ * ì§‘ ê°œìˆ˜ 2N ê°œ ì¡´ìž¬
  *
- * Ä¡Å² °Å¸® : Áý°ú °¡±î¿î Ä¡Å²Áý »çÀÌÀÇ °Å¸®
- * µµ½Ã Ä¡Å² °Å¸® : ¸ðµç ÁýÀÇ Ä¡Å² °Å¸®ÀÇ ÇÕ
+ * ì¹˜í‚¨ ê±°ë¦¬ : ì§‘ê³¼ ê°€ê¹Œìš´ ì¹˜í‚¨ì§‘ ì‚¬ì´ì˜ ê±°ë¦¬
+ * ë„ì‹œ ì¹˜í‚¨ ê±°ë¦¬ : ëª¨ë“  ì§‘ì˜ ì¹˜í‚¨ ê±°ë¦¬ì˜ í•©
  *
- * µµ½ÃÀÇ Ä¡Å²Áý M°³ °í¸§
- * µµ½ÃÀÇ Ä¡Å² °Å¸®°¡ ¾ó¸¶³ª ÀÛ°Ô µÉ±î
+ * ë„ì‹œì˜ ì¹˜í‚¨ì§‘ Mê°œ ê³ ë¦„
+ * ë„ì‹œì˜ ì¹˜í‚¨ ê±°ë¦¬ê°€ ì–¼ë§ˆë‚˜ ìž‘ê²Œ ë ê¹Œ
  *
  */
 
 /**
- * Áý(1)
- * Ä¡(2) µû·Î ÀúÀå
+ * ì§‘(1)
+ * ì¹˜(2) ë”°ë¡œ ì €ìž¥
  *
  */
 
@@ -31,7 +31,7 @@ int graph[51][51];
 vector<pair<int, int>> chic;  // () () () ()
 vector<pair<int, int>> home;
 
-// µµ½ÃÀÇ °Å¸®
+// ë„ì‹œì˜ ê±°ë¦¬
 void cal(vector<int> b) {
     sm = 0;
     for (int j = 0; j < home.size(); j++) {
@@ -48,11 +48,11 @@ void cal(vector<int> b) {
 
 void combi(int idx, vector<int> b) {
     if (b.size() == M) {
-        cout << "( ";
-        for (int i : b) {
-            cout << i << " ";
-        }
-        cout << " )" << endl;
+        // cout << "( ";
+        // for (int i : b) {
+        //     cout << i << " ";
+        // }
+        // cout << " )" << endl;
         cal(b);
         return;
     }
@@ -77,7 +77,7 @@ int main(void) {
         }
     }
 
-    vector<int> v;      // combi »ý¼ºÇÒ‹š
+    vector<int> v;      // combi ìƒì„±í• ë–„
     combi(-1, v);
 
     cout << mi << endl;
