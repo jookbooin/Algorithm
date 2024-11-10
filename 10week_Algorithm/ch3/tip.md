@@ -45,16 +45,11 @@ vector<int> v3[10];
 vector<vector<int>> v2 (10, vector<int> (10, 0));
 ```
 
-# 12869
+# 3-I 12869
 
-## 최단거리 -> bfs !
-
-
-* ( 기본 ) 점 2개 + 2차원 + 4방향 조합
-* ( 심화 ) 점 n개 + m차원 + k 방향
 
 ``` cpp
-// K 방향 
+// 배열 
 int direc[6][3] = {{9, 1, 3},
                    {9, 3, 1},
                    {1, 9, 3},
@@ -62,13 +57,30 @@ int direc[6][3] = {{9, 1, 3},
                    {1, 3, 9},
                    {3, 1, 9}};
 
-// 점 N 개 
-// 여러 점을 다룰때 `구조체` 사용하는 방법 
-struct HP {  
-    int o, s, t;
+// 2. 구조체 
+struct AA{
+    int a,b,c;
 };
 
+vector<AA> av = {{9,3,1},
+                 {9,1,3}, 
+                 {3,9,1}, 
+                 {3,1,9}, 
+                 {1,9,3},
+                 {1,3,9}};
+```
 
+
+## 1. 최단거리 -> bfs !
+
+* ( 기본 ) 점 2개 + 2차원 + 4방향 조합
+* ( 심화 ) 점 n개 + m차원 + k 방향
+
+#### `한 단계 실행`을 표현 → bfs
+1. queue
+2. `visited[nz][nr][nc] = visited[cz][cr][cc] + 1` 
+
+``` cpp
 void back(int one, int second, int third) {
 
     hp[one][second][third] = 1;                 // 첫 방문 점
@@ -96,6 +108,39 @@ void back(int one, int second, int third) {
 }
 
 
+```
+## 2. DP
+1. 메모제이션 
+```cpp
+int& ret = dp[a][b][c];
+if(ret != INF) return ret; // 메모제이션 
+```
+2. 최솟 값 & 개수 세기 
+``` cpp
+ret = min(ret, go(na, nb, nc) + 1 );
+```
+
+dp 메모제이션 코드 
+``` cpp
+int go(int a, int b, int c) {
+
+    // 종료 조건
+    if(a<=0 && b <=0 && c<=0 ){
+        return 0;
+    }
+    
+    int& ret = dp[a][b][c];
+    if(ret != INF) return ret; // 메모제이션 
+
+    for(AA t : av){
+        int na = max(0, a-t.a);
+        int nb = max(0, b-t.b);
+        int nc = max(0, c-t.c);
+        ret = min(ret, go(na, nb, nc) + 1 );
+    }
+
+    return ret;
+}
 ```
 
 # 12851

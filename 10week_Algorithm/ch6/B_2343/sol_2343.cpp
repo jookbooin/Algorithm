@@ -20,17 +20,24 @@ const int INF = 100004;
 int n, m, sum = 0, mx = 0, input,ans =0 ;
 int arr[INF];
 
+
+// false : mid (블루레이 크기가) 너무 작다
+//                            = 조금 키워도 된다. 
+// true : mid (블루레이 크기)가 충분히 크다 
+//                            = 조금 줄여도 된다.
 bool check(int mid) {
+    
+    // 블루레이 크기는 최대 강의 크기보다 커야한다.
     if(mid < mx ) return false;
 
     int cnt = 1;
     int msum = 0;
 
-    // 1. 블루레이 개수
     for (int i = 0; i < n; i++) {
+
         if (msum + arr[i] > mid) {
-            cnt++;          // 새로운 블루레이
-            msum = arr[i];  // 강의 1개 추가
+            cnt++;          
+            msum = arr[i];  
         } else {
             msum += arr[i];
         }
@@ -55,16 +62,17 @@ int main() {
         int mid = (start + end) / 2;
 
         // 2. 블루레이 길이 결정
-        if (check(mid)) {
+        if (check(mid)) { // 블루레이 크기를 줄인다.
             end = mid - 1;
             ans = mid;
-        } else {
-            start = mid + 1;  // 더 큰 길이 탐색
+
+        } else { // 블루레이 크기를 키운다.
+            start = mid + 1;  
         }
     }
 
-    // 블루레이의 크기 최소로 한다...
-    
+
+    cout << ans << endl;
 
     return 0;
 }

@@ -1,0 +1,1 @@
+{"name":"Local: m_5419","url":"d:\\C_C++\\VSC\\Algorithm\\10week_Algorithm\\ch8\\B_5419\\m_5419.cpp","tests":[{"id":1730645536909,"input":"2\n4\n-10 -10\n-10 10\n10 -10\n10 10\n3\n1 3\n2 2\n3 1\n","output":"5\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C_C++\\VSC\\Algorithm\\10week_Algorithm\\ch8\\B_5419\\m_5419.cpp","group":"local","local":true}
