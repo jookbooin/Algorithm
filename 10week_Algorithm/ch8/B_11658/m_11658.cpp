@@ -4,21 +4,18 @@ int n, m;
 int a[max_n][max_n];   // 원본
 int bit[max_n][max_n]; // 2차원 펜윅트리
 
-void update(int r, int c, int val){
-    int y = r;
-    while( r <= n){
-        int x = c;
-        while(x <= n){
-            bit[y][x] += val;
-            x += (x & -x);
+void update(int y, int x, int value){
+    while(y <= n){
+        int j = x;
+        while(j <= n){
+            bit[y][j] += value;
+            j += (j & -j);
         }
-
         y += (y & -y);
     }
     return;
 }
-
-int sum(int y, int x){
+int sum(int y, int x) {
     int s = 0;
     while(y > 0){
         int j = x;
@@ -26,9 +23,8 @@ int sum(int y, int x){
             s += bit[y][j];
             j -= (j & -j);
         }
-        y -= (y & -y);
+        y -= (y&-y);
     }
-
     return s;
 }
 
@@ -48,7 +44,7 @@ int main(){
         if(type){
             int y1, x1, y2, x2;
             scanf("%d%d%d%d", &y1, &x1, &y2, &x2);
-            printf("%d\n", sum(y2,x2), sum(y1-1,x2) - sum(y2, x1-1) + sum(y1-1, x1-1));
+             printf("%d\n", sum(y2, x2) - sum(y1 - 1, x2) - sum(y2, x1 - 1) + sum(y1 - 1, x1 - 1));
         }else{
             int y, x, value;
             scanf("%d%d%d", &y, &x, &value);
