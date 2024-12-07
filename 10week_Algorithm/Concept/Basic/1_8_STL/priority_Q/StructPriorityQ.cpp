@@ -25,7 +25,7 @@ int main() {
     while (!pq.empty()) {
         Student ts = pq.top();
         pq.pop();
-        cout << "(학번, 수학 , 영어 ) : " << ts.id << ' ' << ts.math << ' ' << ts.eng << '\n';
+        cout << "(id, math , eng) : " << ts.id << ' ' << ts.math << ' ' << ts.eng << '\n';
     }
 
     return 0;

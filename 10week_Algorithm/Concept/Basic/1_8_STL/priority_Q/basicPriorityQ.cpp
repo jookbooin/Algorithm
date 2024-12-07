@@ -2,7 +2,7 @@
 using namespace std;
 
 priority_queue<int,vector<int>,greater<int>> pq1; // 오름 차순 ( 최소 힙 )
-priority_queue<int> pq2; // 내림차순
+priority_queue<int> pq2; // 내림차순 ( 최대 힙 )
 priority_queue<int, vector<int>,less<int>> pq3; // 내림차순 ( 최대 힙 )
 
 int main(){

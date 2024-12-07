@@ -2,7 +2,7 @@
 using namespace std;   
 const int dr[] = {0, -1, 0, 1}; 
 const int dc[] = {-1, 0, 1, 0}; 
-int visited[51][51], a[51][51], cnt, compSize[2504], n, m, mx, big; 
+int visited[51][51], a[51][51], cnt, areaSize[2504], n, m, mx, big; 
 
 int dfs (int r, int c, int cnt){  //
 
@@ -33,8 +33,8 @@ int main(){
         for(int j = 0; j < n; j++){
             if(!visited[i][j]){
                 cnt++;                           // 영역 개수 
-                compSize[cnt] = dfs(i, j, cnt);  // 해당 영역 - 내부 개수
-                mx = max(mx, compSize[cnt]);     // 영역별 내부 최대 값
+                areaSize[cnt] = dfs(i, j, cnt);  // 해당 영역 - 내부 개수
+                mx = max(mx, areaSize[cnt]);     // 영역별 내부 최대 값
             } 
         }
     }
@@ -45,7 +45,7 @@ int main(){
                 int a = visited[r + 1][c];
                 int b = visited[r][c];
                 if(a != b){
-                    big = max(big , compSize[a] + compSize[b]);
+                    big = max(big , areaSize[a] + areaSize[b]);
                 }
             }
 
@@ -53,7 +53,7 @@ int main(){
                 int a = visited[r][c+1];
                 int b = visited[r][c];
                 if(a != b){
-                    big = max(big, compSize[a] + compSize[b]);
+                    big = max(big, areaSize[a] + areaSize[b]);
                 }
             }
         }

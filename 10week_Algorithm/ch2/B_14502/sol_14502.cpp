@@ -54,8 +54,8 @@ int main(void) {
 
     // 3¡° º±≈√
     for (int i = 0; i < wallList.size(); i++) {
-        for (int j = 0; j < i; j++) {
-            for (int k = 0; k < j; k++) {
+        for (int j = i+1; j < wallList.size(); j++) {
+            for (int k = j+1; k < wallList.size(); k++) {
                 graph[wallList[i].first][wallList[i].second] = 1;
                 graph[wallList[j].first][wallList[j].second] = 1;
                 graph[wallList[k].first][wallList[k].second] = 1;

@@ -4,107 +4,43 @@ using namespace std;
 
 typedef long long ll;
 
-vector<int> tree, y_com;
-vector<pair<int, int>> point;
+int n, k, cur, depth, mi = 1e9;
+int val[100004];      //
+int visited[100004];  // 특정 depth 방문 처리
 
-int t, n, x, y;
+int main(){
+    cin >> n >> k;
 
-int sum (int idx){
-    int ret = 0;
-    while(idx > 0){
-        ret += tree[idx];
-        idx -= (idx & -idx);
-    }
-    return ret;
-}
-void update(int pos, int value){
-    int idx = pos;
-    while(idx <= n){
-        tree[idx] += value;
-        idx += (idx & -idx);
-    }
-    return;
-}
-
-int find_index(const vector<int> & _y, int value){
-    int lo = 0, hi = _y.size() - 1;
-    while(lo <= hi){
-        int mid = (lo + hi) / 2;
-        if(_y[mid] == value) return mid;
-        if(_y[mid] < value) lo = mid + 1;
-        else hi = mid - 1;
-    }
-}
-
-bool y_cmp(int a, int b) {
-    return a > b;
-}
-
-bool cmp(pair<int, int> a, pair<int, int> b) {
-    if (a.first == b.first) {
-        return a.second > b.second;
+    if(n == k){
+        cout << 0 << '\n';
+        cout << 1 << '\n';
     }
 
-    return a.first < b.first;
-}
+    queue<int> q;
+    q.push(n);
+    visited[n] = 1; // 최단거리
+    val[n] = 1; // 갈 수 있는 방법의 수
 
-void print_tree(){
-    cout <<"    tree : ";
-    for(int i = 0; i<=n; i++){
-        cout << tree[i] <<" ";
-    }
-    cout << "\n\n";
-}
+    while(q.size()){
 
-void print_vv(vector<int>& v){
-    cout <<"    v : ";
-    for(int i = 0; i<v.size(); i++){
-        cout << v[i] << " ";
-    }
-    cout << endl;
-}
+        int cur = q.front();
+        q.pop();
 
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+        for(int next : {cur-1, cur+1, cur*2}){
+            if(next < 0 || next > 100000) continue;
 
-    cin >> t;
+            if(!visited[next]){  // 첫 방문일 때
+                visited[next] = visited[cur] + 1; // 최단거리
+                val[next] += val[cur];
 
-    while (t--) {
-        cin >> n;
-        tree.clear();
-        y_com.clear();
-        point.clear();
-        tree.resize(n + 1);
-
-        for (int i = 0; i < n; i++) {
-            cin >> x >> y;
-            point.push_back({x, y});
-            y_com.push_back(y);
+                q.push(next);
+            } else if(visited[next] == visited[cur] + 1 ){ // 다음번에 갈 수 있는 위치일 때
+                val[next] += val[cur];
+            }
         }
 
-        sort(point.begin(), point.end(),cmp);   // x 오름차순, y 내림차순
-        sort(y_com.begin(), y_com.end());  // y 내림차순
-        print_vv(y_com);
-
-        ll ret = 0;
-        int cy = point[0].second;
-        int idx = find_index(y_com, cy) + 1;
-        cout << "cy : "<< point[0].second << " idx : " << idx << endl;
-        update(idx, 1);  //
-        print_tree();
-
-        for (int i = 1; i < n; i++) {
-            cy = point[i].second;
-            idx = find_index(y_com, cy) + 1;
-
-            cout << "cy : "<< cy << " idx : " << idx << endl;
-            ret += sum(idx);
-            update(idx, 1);
-            print_tree();
-        }
-        cout << ret << endl;
     }
+
+    cout << val[k] << endl;
     return 0;
 }

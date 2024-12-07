@@ -32,7 +32,7 @@ struct cmp3 {
  
 int main() {
     
-    cout << "1. id 내림차순" << endl;
+    cout << "1. id lower" << endl;
     priority_queue<Student, vector<Student>, cmp1> pq1;  
  
     pq1.push(Student(3, 100, 50));
@@ -43,11 +43,11 @@ int main() {
     
     while (!pq1.empty()) {
         Student ts = pq1.top(); pq1.pop();
-        cout << "(학번, 수학 , 영어 ) : " << ts.id << ' ' << ts.math << ' ' << ts.eng << '\n';
+        cout << "(id, math , eng) : " << ts.id << ' ' << ts.math << ' ' << ts.eng << '\n';
     }
 
     cout << endl;
-    cout << "2. math 오름차순" << endl;  
+    cout << "2. math upper" << endl;  
     priority_queue<Student, vector<Student>, cmp2> pq2;  
  
     pq2.push(Student(3, 100, 50));
@@ -58,22 +58,22 @@ int main() {
     
     while (!pq2.empty()) {
         Student ts = pq2.top(); pq2.pop();
-        cout << "(학번, 수학 , 영어 ) : " << ts.id << ' ' << ts.math << ' ' << ts.eng << '\n';
+        cout << "(id, math , eng) : " << ts.id << ' ' << ts.math << ' ' << ts.eng << '\n';
     }
 
     cout << endl;
-    cout << "3. eng 내림차순" << endl;  
+    cout << "3. eng lower" << endl;  
     priority_queue<Student, vector<Student>, cmp3> pq3;  
  
-    pq3.push(Student(3, 100, 50));
-    pq3.push(Student(1, 60, 50));
-    pq3.push(Student(2, 80, 50));
+    pq3.push(Student(3, 100, 70));
+    pq3.push(Student(1, 60, 30));
+    pq3.push(Student(2, 80, 60));
     pq3.push(Student(4, 90, 50));
     pq3.push(Student(5, 70, 40));
     
     while (!pq3.empty()) {
         Student ts = pq3.top(); pq3.pop();
-        cout << "(학번, 수학 , 영어 ) : " << ts.id << ' ' << ts.math << ' ' << ts.eng << '\n';
+        cout << "(id, math , eng) : " << ts.id << ' ' << ts.math << ' ' << ts.eng << '\n';
     }
  
  

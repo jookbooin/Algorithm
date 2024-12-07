@@ -24,7 +24,7 @@ void bfs(int row, int col) {
             int nc = col + dc[i];
             if (nr < 0 || nr >= R || nc < 0 || nc >= C || visited[nr][nc]) continue;
 
-            visited[nr][nc] = 1;        // graph[nr][nc] = 0, 1 ¸ğµÎ ¹æ¹® Ã³¸® ÇØ¾ßÇÔ.
+            visited[nr][nc] = 1;        // graph[nr][nc] = 0, 1 ëª¨ë‘ ë°©ë¬¸ ì²˜ë¦¬ í•´ì•¼í•¨.
 
             if (graph[nr][nc] == 1) {
                 ch.push_back({nr, nc});
@@ -36,7 +36,7 @@ void bfs(int row, int col) {
 }
 
 void dfs(int row, int col) {
-    // ÀÌ°ÅÁ» ¿Ü¿ìÀÚ !!!!
+    // ì´ê±°ì¢€ ì™¸ìš°ì !!!!
     visited[row][col] = 1;
     if (graph[row][col] == 1) {
         ch.push_back({row, col});
@@ -60,7 +60,7 @@ int main(void) {
         }
     }
 
-    // Ä¡Áî°¡ ¾ø¾îÁú ‹š ±îÁö »èÁ¦
+    // ì¹˜ì¦ˆê°€ ì—†ì–´ì§ˆ ë–„ ê¹Œì§€ ì‚­ì œ
     while (true) {
         fill(&visited[0][0], &visited[0][0] + 104 * 104, 0);
         ch.clear();

@@ -38,22 +38,18 @@ void check(int start) {
         tie(cur, depth) = q.front();
         q.pop();
 
-        if (cur < 0 || cur >= 100000) continue;
+        if(!visited[cur] )
 
         if(!visited[cur] && cur == K){ // 목적지에 첫 방문
             val[cur] = depth;   // 최소 시간
             visited[cur] = 1;
         }else if(cur == K && val[cur] == depth) { // 목적지 방문 o + 최소 거리 일때
             visited[cur] ++;
-        }else{                  
-            continue;
         }
 
         visited[cur] = 1;
 
-        if(cur - 1 >=0) q.push({cur - 1, depth + 1});
-        q.push({cur + 1, depth + 1});
-        q.push({cur * 2, depth + 1});  // 제한조건?
+        if(cur * 2 <= 100000)
 
     }
 }
